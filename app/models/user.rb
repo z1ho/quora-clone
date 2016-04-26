@@ -1,9 +1,11 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-  # users.password_hash in the database is a :string
   attr_accessor :password
   include BCrypt
+
+ # validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create
+ #validates :password, :format => {:with => /^(?=.*[a-zA-Z])(?=.*[0-9]).{6,}$/, message: "Password must contain at least 6 characters and include one number and one letter."}
 
   has_many :questions
   has_many :answers
@@ -21,14 +23,13 @@ class User < ActiveRecord::Base
     self.encrypted_password = Password.create(password)
   end
 
-  def log_in(password)
+  def login(password)
     if self.password == password
       return true
     else
       return false  
     end
   end
-
 end
 
 #########

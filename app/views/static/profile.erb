@@ -1,0 +1,15 @@
+<center>
+	<div>
+		<h3>Profile</h3>
+		<p>Welcome back <%= "#{session[:username]}" %>!</p>
+	</div>
+</center>
+
+<div>
+	<p><u>Feed</u></p>
+</div>
+
+<div> <%= @question.each do |question| 
+	puts question%>
+
+</div>

@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration
 			x.string :first_name
 			x.string :last_name
 			x.string :encrypted_password
-			x.timestamp null: false
+			x.timestamp null: false			
 		end	
 	end
 end

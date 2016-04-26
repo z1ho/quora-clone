@@ -1,1 +1,48 @@
-<p>You have successfully logged out</p>
+<!-- <html>
+    <head>
+        <meta http-equiv="refresh" content="3;url=/http://localhost:9393/" />
+    </head>
+    <body>
+    	<p>You have successfully logged out!</p>
+        <p>Redirecting in 3 seconds...</p>
+    </body>
+</html>
+ -->
+
+<!-- <html>
+<body onload="timer=setTimeout(function(){ window.location='http://localhost:9393';}, 3000)">
+<p>You will be redirected in 3 seconds</p>
+</body>
+</html> -->
+<center>
+<form name="redirect">
+
+<font face="Arial"><b>You will be redirected to the mainpage in<br><br>
+<form>
+<input type="text" size="3" name="redirect2" style="font-size: 15px; text-align: right ;font-family: Futura; border-color: transparent;">
+</form>
+seconds</b></font>
+
+<script>
+	//change below target URL to your own
+	var targetURL="http://localhost:9393"
+	//change the second to start counting down from
+	var countdownfrom=5
+
+	var currentsecond=document.redirect.redirect2.value=countdownfrom+1
+	function countredirect(){
+	if (currentsecond!=1){
+	currentsecond-=1
+	document.redirect.redirect2.value=currentsecond
+	}
+	else{
+	window.location=targetURL
+	return
+	}
+	setTimeout("countredirect()",1000)
+	}
+
+	countredirect()
+</script>
+<p>Click <a href="http://localhost:9393">here</a> to redirect</p>
+</center>
