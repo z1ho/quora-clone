@@ -10,9 +10,10 @@ end
 
 post '/questions/:question_id/answers' do
 	@question = Question.find(params[:question_id])
-	# @answer = @question.answers.build()
+	@all_questions = Question.all
 	@answer = Answer.new(user_id: session[:user_id], answer: params[:answer], question_id: @question.id)	
 	@answer.save
+	@all_answers = Answer.all
 	erb :"static/feed"
 end
 

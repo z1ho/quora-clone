@@ -7,7 +7,7 @@ class CreateQuestions < ActiveRecord::Migration
 			x.string :caption
 			x.timestamp null: false
 			x.integer :upvotes_answer, default: 0
-			x.integer :upvotes_answer, default: 0
+			x.integer :downvotes_answer, default: 0
 		end	
 	end
 end

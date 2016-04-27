@@ -5,20 +5,23 @@
 	
 	<body>
 		<%= yield %>
-		<div style="text-align: center;">
-			<div id="login" style="padding-top: 40px">
-				<p>Already an existing user?</p>
-				<form action ="/user_login" method="get">
-					<input type = "submit" value = "Login">
-				</form>
-			</div>
-
-			<div id="logout">
-				<form action ="/user_logout" method="get">
-					<input type = "submit" value = "Logout">
-				</form>
-			</div>
-		</div>	
-
 	</body>
+
+	<footer>
+		<div style="text-align: center;">
+				<div id="login" style="padding-top: 40px">
+					<p>Already an existing user?</p>
+					<form action ="/user_login" method="get">
+						<input type = "submit" value = "Login">
+					</form>
+				</div>
+
+				<div id="logout">
+					<form action ="/user_logout" method="get">
+						<input type = "submit" value = "Logout">
+					</form>
+				</div>
+			</div>	
+	</footer>
+
 </html>

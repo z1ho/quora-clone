@@ -1,3 +1,4 @@
+
 <center>
 	<div>
 		<h3>Profile</h3>
@@ -6,10 +7,27 @@
 </center>
 
 <div>
-	<p><u>Feed</u></p>
+	<h4><u>Feeds</u></h4>
+	<p><u>Recent Question</u></p>
+	<%= @current_user = session[:user_id]%>
+	<%= q = Question.find_by user_id: @current_user %>
+	<%= p q.question %>
+
+	<br><br>
+	<p><u>Recent Answer</u></p>	
+	<%= a = Answer.find_by user_id: @current_user %>
+	<%= p a.answer %>	
+
+	<br><br>
+	<a href="/user_questions"<p><%= "#{session[:username]}"%>'s Questions</p></a>
+
+	<br><br>
+	<a href="/user_answers"<p><%= "#{session[:username]}"%>'s Answers</p></a>
+
 </div>
 
-<div> <%= @question.each do |question| 
-	puts question%>
+	
+
+<div>
 
 </div>
