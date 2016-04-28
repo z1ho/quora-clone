@@ -1,20 +1,12 @@
 <center>
 
 	<h2>Top Stories For You</h2><br>
-	<p>This is the feed page which should list recent and top stories from all users</p>
+	<p>This is the feed page which should list recent and top stories from all users with upvotes</p>
 
 	<div style="font-size: 20px;">
-
-<!-- 		<a href="/profile"<p><%= "#{session[:username]}"%>'s</a> Answers</p>
-		
-		<a href="/questions/<%= @question.id %>/answers/new"><p><%= "#{@question.question}"%>User Questions</a>!</p>
-		<p><%= @question.caption %>!</p>
-		<br> -->
-
-		<form method=get action='/questions/<%= @question.id %>/answers/new'> 
-		<input type=submit value = "Answer">
-		<form method=get action='/profile'> 
-		<input type=submit value = "Back">
+	
+		<form method=get action='/questions'> 
+		<input type=submit value = "Back to All Q&A's">
 
 		<br><br>
 	

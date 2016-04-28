@@ -1,5 +1,24 @@
 <h2>Answer Index Page</h2>
-<p>This page displays all answers<p>
+<p>This page displays all answers</p>
 
+<% @answers.each do |answer| %>
+	<div style="padding-top: 50px">
+	<a href="/answers/<%= answer.id %>"><%= answer.answer %></a><br><br>
 
-<%= @answer.answer %>
+		<form method=get action="/answers/<%= answer.id %>/edit">
+		<input type=submit value="Edit">
+		</form>	
+					
+		<form method=get action="/answers/<%= answer.id %>/edit">
+		<input type= submit value="Delete">
+		</form>
+
+	</div>
+<% end %>	
+
+<div style="padding-top: 50px">
+	<form method=get action='/questions'> 
+		<input type=submit value = "Back to All Q&A">
+	</form>
+</div>
+

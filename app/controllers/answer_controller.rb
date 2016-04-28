@@ -1,12 +1,13 @@
 # DISPLAY ALL answers (i.e. an index for all answer)
 get '/answers' do
-	@answer = Answer.all
+	@answers = Answer.all
 	erb :'/answers/index'
 end
 
 # DISPLAY a specific question
-get '/answer/:id' do 
+get '/answers/:id' do 
 	@answer = Answer.find(params[:id])
+	@question = Question.find(params[:id])
 	erb :'/answers/show'
 end
 
@@ -24,7 +25,7 @@ get '/answers/:id/edit' do
 end
 
 # PATCH i.e. to process the input from the Form to EDIT a specific answer
-patch '/answer/:id' do
+patch '/answers/:id' do
 	@answer = Answer.find(params[:id])
 	@answer.update(answer: params[:answer])
 	@answer.save

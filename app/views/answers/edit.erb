@@ -1,7 +1,17 @@
 <p>Answer Edit Page</p>
 
-	<h3>Edit Answer</h3>
+<h3>Edit or Delete Your Answer</h3>
+
+<div>
 	<form method=post action="/answers/<%= @answer.id %>">
-		<input type=hidden name = "_method" value = "patch">
+		<input type=text value="<%= @answer.answer %>" name= "answer"><br>
+		<input type=hidden name= "_method" value= "patch">
 		<input type=submit value="Edit">
 	</form>
+	<span>
+	<form method=post action="/answers/<%= @answer.id %>">
+		<input type=hidden name="_method" value="delete">
+		<input type=submit value="Delete">
+	</form>
+	</span>
+</div>

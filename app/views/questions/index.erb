@@ -1,22 +1,32 @@
 <h2>Question Index Page</h2>
-<p>This page displays all questions<p>
+<p>This page displays all questions from all users</p>
 
-<p>
-	<% @questions.each do |question| %>
+
+<% @questions.each do |question| %>
 		<div style="padding-top: 50px">
-		<a href="/questions/<%= question.id %>"><%= question.question %></a><br><span><%=	question.caption%></span>
-		</div>
+			<a href="/questions/<%= question.id %>"><%= question.question %></a><br><span><%=	question.caption%></span><br>		
+			<p><b>by: </b><a href="/profile/<%= question.user.username%>"><%= question.user.username%></a></p>
 
-		<div class="button">
-			<form method=get action="/questions/<%= question.id %>/edit">
-				<input type=submit value="Edit">
+
+			<form method=post action="/answers">
+				<input type=text placeholder = "Submit An Answer" style="text-align: center; width: 250px; height: 50px;" name = "answer"><br><br>
+				<input type= submit value="Submit">
 			</form>
+
+				<form method=get action="/questions/<%= question.id %>/edit">
+				<input type=submit value="Edit">
+				</form>	
 					
 			<form method=get action="/questions/<%= question.id %>/edit">
 				<input type= submit value="Delete">
 			</form>
-		</div>
 
-	<%end %>
-</p>
+		</div>
+<% end %>
+
+<div style="padding-top: 50px">
+	<form method=get action='/feed'> 
+		<input type=submit value = "Back to Feed">
+	</form>
+</div>
 

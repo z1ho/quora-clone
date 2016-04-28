@@ -1,4 +1,7 @@
 <h2>Answer Display Page</h2>
 <p>This page DISPLAYS a Particular Answer</p>
 
-<%= @answer.answer %>
+<p><b>Question:</b> <%= @question.question %></p>
+<p><b>Answer:</b> <%= @answer.answer %></p>
+<p><b>Updated At:</b> <%= @answer.updated_at %></p>
+<p><b>by: </b><a href="/profile"<p><%= "#{session[:username]}"%></a></p>
