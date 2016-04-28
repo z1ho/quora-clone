@@ -1,0 +1,12 @@
+<h2>Question Display Page</h2>
+<p>This page DISPLAYS a Particular Question</p>
+
+<%= @question.question %>
+<%= @question.caption %>
+
+
+<div style="padding-top: 50px">
+	<form method=get action='/questions'> 
+		<input type=submit value = "Back">
+	</form>
+</div>

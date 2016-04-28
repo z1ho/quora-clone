@@ -1,13 +1,15 @@
 <center>
 
 	<h2>Top Stories For You</h2><br>
-	<p>This is the feed page</p>
+	<p>This is the feed page which should list recent and top stories from all users</p>
 
 	<div style="font-size: 20px;">
 
-		<p><%= @question.question %>!</p>
-		<p><%= @question.caption%>!</p>
-		<br>
+<!-- 		<a href="/profile"<p><%= "#{session[:username]}"%>'s</a> Answers</p>
+		
+		<a href="/questions/<%= @question.id %>/answers/new"><p><%= "#{@question.question}"%>User Questions</a>!</p>
+		<p><%= @question.caption %>!</p>
+		<br> -->
 
 		<form method=get action='/questions/<%= @question.id %>/answers/new'> 
 		<input type=submit value = "Answer">
@@ -16,20 +18,18 @@
 
 		<br><br>
 	
-		<%= byebug %>
 		<p>
 			<% @all_questions.each do |question| %>
 			<p><%=	question.question %></p>
 			<p><%=	question.caption %></p>
 			<%end %>
 		</p>
-
-<!-- ### PERHAPS WE WONT SHOW THE ANSWERS YET 		
+		
 		<p> 
 			<% @all_answers.each do |answer| %>
 			<p><%=	answer.answer %></p>
 			<%end %>
-		</p> -->
+		</p>
 
 	</div>
 

@@ -1,0 +1,17 @@
+<p>Question Edit Page</p>
+
+<h3>Edit or Delete Your Question</h3>
+
+<div>
+	<form method=post action="/questions/<%= @question.id %>">
+		<input type=text value= "<%= @question.question %>" name = "question"><br>
+		<input type=hidden name = "_method" value = "patch">
+		<input type=submit value="Edit">
+	</form>
+	<span>
+	<form method=post action="/questions/<%= @question.id %>">
+		<input type=hidden name = "_method" value ="delete">
+		<input type=submit value="Delete">
+	</form>
+	</span>
+</div>

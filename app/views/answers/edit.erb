@@ -1,0 +1,7 @@
+<p>Answer Edit Page</p>
+
+	<h3>Edit Answer</h3>
+	<form method=post action="/answers/<%= @answer.id %>">
+		<input type=hidden name = "_method" value = "patch">
+		<input type=submit value="Edit">
+	</form>

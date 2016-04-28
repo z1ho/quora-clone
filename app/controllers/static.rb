@@ -19,6 +19,6 @@ get '/user_logout' do
 end
 
 post '/user_logout' do
-	session[:user] = false
-		"Succesfully Logged Out!"
+	session[:user_id] = nil
+	redirect "/user_logout"
 end

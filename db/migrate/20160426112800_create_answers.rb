@@ -6,7 +6,8 @@ class CreateAnswers < ActiveRecord::Migration
 			x.integer :question_id
 			x.string :answer 
 			x.string :caption
-			x.timestamp null: false
+			x.datetime :created_at
+			x.datetime :updated_at	
 			x.integer :upvotes_answer, default: 0
 			x.integer :downvotes_answer, default: 0
 		end	

@@ -3,31 +3,24 @@
 	<div>
 		<h3>Profile</h3>
 		<p>Welcome back <%= "#{session[:username]}" %>!</p>
+		<p>Today's <a href="/static/feed">feed</a></p>
 	</div>
 </center>
 
 <div>
 	<h4><u>Feeds</u></h4>
 	<p><u>Recent Question</u></p>
-	<%= @current_user = session[:user_id]%>
-	<%= q = Question.find_by user_id: @current_user %>
-	<%= p q.question %>
-
-	<br><br>
+	<%= quest = Question.find_by_user_id(session[:user_id]) %>
+	<p><%= quest.question %></p>
+	<br>
 	<p><u>Recent Answer</u></p>	
-	<%= a = Answer.find_by user_id: @current_user %>
-	<%= p a.answer %>	
-
-	<br><br>
-	<a href="/user_questions"<p><%= "#{session[:username]}"%>'s Questions</p></a>
-
-	<br><br>
-	<a href="/user_answers"<p><%= "#{session[:username]}"%>'s Answers</p></a>
-
+	<%= ans = Answer.find_by_user_id(session[:user_id]) %>
+	<p><%= ans.answer%></p>
 </div>
 
-	
-
 <div>
-
+	<br><br>
+	<a href="/user_questions"<p><%= "#{session[:username]}"%>'s Questions</p></a>
+	<br><br>
+	<a href="/user_answers"<p><%= "#{session[:username]}"%>'s Answers</p></a>
 </div>

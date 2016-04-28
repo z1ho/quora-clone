@@ -1,9 +1,9 @@
-<center>
+w<center>
 	<p>Question Page</p>
 	<p><%= @question.question %></p>
 
 	<div>
-	<form method=post action='/questions/<%= @question.id %>/answers'> <!-- # submit answers for this question_id(params) from all questions -->
+	<form method=post action='/questions/<%= @question.id %>/answers'> <!-- # submit/post answers for this question_id(params) from all questions -->
 		<input type=text placeholder = "Answer" name = "answer"><br></br>
 		<input type=submit value = "Submit Answer">
 	</form>

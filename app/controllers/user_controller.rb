@@ -14,10 +14,11 @@ end
 
 post '/user_login' do
 	@user = User.find_by_username(params[:username])
+
 	if @user.login(params[:password]) == true
-		session[:user] = true									#verifies the session
-		session[:user_id] = @user.id 					#assigns the user id
-		session[:username] = @user.username 	#assigns username
+		session[:user] = true											#verifies the session
+		session[:user_id] = @user.id 							#assigns the user id
+		# session[:username] = @user.username 		#assigns username
 		erb :'static/homepage'
 	else 
 		"Error, please sign up"
@@ -25,24 +26,32 @@ post '/user_login' do
  	end
 end
 
-#Checks if session[:user] is true
+# Checks if session[:user] is true
 helpers do
   def user?
     session[:user]
   end
 end
 
-
 get '/profile' do
-	# @current_user = session[:user_id]
 	erb :'static/profile'
 end
 
 post '/profile' do
-	# @current_user = session[:user_id]
 	erb :'static/profile'
 end
 
+get '/feed' do
+	@question = Question.new(user_id: session[:user_id], question: params[:question], caption: params[:caption])
+	@question.save
+	@all_questions = Question.all
+	@all_answers = Answer.all
+	erb :'static/feed'
+end
+
+post '/feed' do
+	erb :'static/feed'
+end
 
 get '/user_answers' do
 	erb :'static/user_answers'
@@ -51,3 +60,5 @@ end
 get '/user_questions' do
 	erb :'static/user_questions'
 end
+
+

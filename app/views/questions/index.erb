@@ -1,0 +1,22 @@
+<h2>Question Index Page</h2>
+<p>This page displays all questions<p>
+
+<p>
+	<% @questions.each do |question| %>
+		<div style="padding-top: 50px">
+		<a href="/questions/<%= question.id %>"><%= question.question %></a><br><span><%=	question.caption%></span>
+		</div>
+
+		<div class="button">
+			<form method=get action="/questions/<%= question.id %>/edit">
+				<input type=submit value="Edit">
+			</form>
+					
+			<form method=get action="/questions/<%= question.id %>/edit">
+				<input type= submit value="Delete">
+			</form>
+		</div>
+
+	<%end %>
+</p>
+
