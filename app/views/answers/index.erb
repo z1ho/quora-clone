@@ -10,20 +10,20 @@
 		<p><b>by: </b><%= answer.user.username%></a></p>
 		<p><b>Updated At:</b> <%= answer.updated_at %></p>
 
-		<form method=get action="/answers/<%= answer.id %>/edit">
-		<input type=submit value="Edit">
-		</form>	
-					
-		<form method=get action="/answers/<%= answer.id %>/edit">
-		<input type= submit value="Delete">
-		</form>
+		<% if current_user == answer.user%>
+			<form method=get action="/answers/<%= answer.id %>/edit">
+			<input type=submit value="Edit">
+			</form>
 
+			<form method=get action="/answers/<%= answer.id %>/edit">
+			<input type= submit value="Delete">
+			</form>
+		<% end %>
 	</div>
-<% end %>	
+<% end %>
 
 <div style="padding-top: 50px">
-	<form method=get action='/questions'> 
-		<input type=submit value = "Back to All Q&A">
+	<form method=get action='/questions'>
+	<input type=submit value = "Back to All Q&A">
 	</form>
 </div>
-

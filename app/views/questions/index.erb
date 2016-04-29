@@ -5,31 +5,33 @@
 
 
 <% @questions.each do |question| %>
-	<div style="padding-top: 50px">
-	<a href="/questions/<%= question.id %>"><%= question.question %></a><br><br>
+<div style="padding-top: 50px">
+<a href="/questions/<%= question.id %>"><%= question.question %></a><br><br>
 
-		<p><b>by: </b><%= question.user.username%></a></p>
-		<p><b>Updated At:</b> <%= question.updated_at %></p>
+<p><b>by: </b><%= question.user.username%></a></p>
+<p><b>Updated At:</b> <%= question.updated_at %></p>
 
-			<form method=post action="/answers/<%= question.id %>/answers/new">
-				<input type=text placeholder = "Submit An Answer" style="text-align: center; width: 250px; height: 50px;" name = "answer"><br><br>
-				<input type= submit value="Submit">
-			</form>
+	<% if current_user != question.user %>
+		<form method=post action="/answers/<%= question.id %>/answers/new">
+		<input type=text placeholder = "Submit An Answer" style="text-align: center; width: 250px; height: 50px;" name = "answer"><br><br>
+		<input type= submit value="Submit">
+		</form>
+	<% end %>
 
-				<form method=get action="/questions/<%= question.id %>/edit">
-				<input type=submit value="Edit">
-				</form>	
-					
-			<form method=get action="/questions/<%= question.id %>/edit">
-				<input type= submit value="Delete">
-			</form>
+	<% if current_user == question.user %>
+		<form method=get action="/questions/<%= question.id %>/edit">
+		<input type=submit value="Edit">
+		</form>
 
-		</div>
+		<form method=get action="/questions/<%= question.id %>/edit">
+		<input type= submit value="Delete">
+		</form>
+	<% end %>
+	</div>
 <% end %>
 
 <div style="padding-top: 50px">
-	<form method=get action='/feed'> 
-		<input type=submit value = "Back to Feed">
+	<form method=get action='/feed'>
+	<input type=submit value = "Back to Feed">
 	</form>
 </div>
-

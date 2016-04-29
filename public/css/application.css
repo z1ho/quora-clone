@@ -1,2 +1,8 @@
 /*.btn is a class*/
 /*padding 20px / 24px 20 refers to top & bottom / 24 refers to L & R*/
+
+.footer {
+  margin: 100px;
+  font-family: Futura;
+  color: red;
+}

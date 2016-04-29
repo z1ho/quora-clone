@@ -5,13 +5,16 @@ get '/questions' do
 end
 
 # DISPLAY a specific question
-get '/questions/:id' do 
+get '/questions/:id' do
 	@question = Question.find(params[:id])
 	erb :'/questions/show'
 end
 
+
+#@sorted_question = Question.order
+
 # CREATE a new question
-post '/questions' do 
+post '/questions' do
 	@question = Question.new(user_id: session[:user_id], question: params[:question], caption: params[:caption])
 	if @question.save
 		redirect "/questions"
@@ -35,11 +38,11 @@ patch '/questions/:id' do
 end
 
 # DESTROY a particular question
-delete '/questions/:id' do 
+delete '/questions/:id' do
 	@question = Question.find(params[:id])
 	@question.destroy
 	redirect "/questions"
-end 
+end
 
 ########## EARLIER VERSION ##########
 
