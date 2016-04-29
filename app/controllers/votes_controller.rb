@@ -1,27 +1,30 @@
 #QUESTION UPVOTES
-post '/questions/:id/question_votes/upvote'
-     @question_votes = Question_vote.new(question_id: params[:id], user_id: current_user.id, upvote: 1, downvote: 0)
-     @question_votes.save
+post '/questions/:id/question_votes/upvote' do
+  @question_votes = Question_vote.new(question_id: params[:id], user_id: current_user.id, upvote: 1, downvote: 0)
+  @question_votes.save
+  redirect "/questions"
 end
 
 #QUESTION DOWNVOTES
-post '/questions/:id/question_votes/downvote'
-     @question_votes = Question_vote.new(question_id: params[:id], user_id: current_user.id, upvote: 0, downvote: 1)
-     @question_votes.save
+post '/questions/:id/question_votes/downvote' do
+  @question_votes = Question_vote.new(question_id: params[:id], user_id: current_user.id, upvote: 0, downvote: 1)
+  @question_votes.save
+  redirect "/questions"
 end
 
 #ANSWER UPVOTES
-get '/answers/:id/answer_votes/upvote'
+get '/answers/:id/answer_votes/upvote' do
   @answer_votes = Answer_vote.new(question_id: params[:id], user_id: current_user.id, upvote: 1, downvote: 0)
   @answer_votes.save
+  redirect "/questions"
 end
 
 #ANSWER DOWNVOTES
-post '/answers/:id/answer_votes/downvote'
+post '/answers/:id/answer_votes/downvote' do
   @answer_votes = Answer_vote.new(question_id: params[:id], user_id: current_user.id, upvote: 0, downvote: 1)
   @answer_votes.save
+  redirect "/questions"
 end
-
 
 ############### NOTES ###############
 

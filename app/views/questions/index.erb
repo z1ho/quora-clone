@@ -13,19 +13,28 @@
 
 	<% if current_user != question.user %>
 		<form method=post action="/answers/<%= question.id %>/answers/new">
-		<input type=text placeholder = "Submit An Answer" style="text-align: center; width: 250px; height: 50px;" name = "answer"><br><br>
-		<input type= submit value="Submit">
+			<input type=text placeholder = "Submit An Answer" style="text-align: center; width: 250px; height: 50px;" name = "answer"><br>
+			<input type= submit value="Submit">
 		</form>
+		<br>
+		<form method=post action="/questions/<%= question.id %>/question_votes/upvote">
+			<input type= submit value="Upvote">
+		</form>
+		<form method=post action="/questions/<%= question.id %>/question_votes/downvote">
+			<input type= submit value="Downvote">
+		</form>
+
 	<% end %>
 
 	<% if current_user == question.user %>
 		<form method=get action="/questions/<%= question.id %>/edit">
-		<input type=submit value="Edit">
+			<input type=submit value="Edit">
 		</form>
 
 		<form method=get action="/questions/<%= question.id %>/edit">
-		<input type= submit value="Delete">
+			<input type= submit value="Delete">
 		</form>
+
 	<% end %>
 	</div>
 <% end %>

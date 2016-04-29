@@ -12,18 +12,27 @@
 
 		<% if current_user == answer.user%>
 			<form method=get action="/answers/<%= answer.id %>/edit">
-			<input type=submit value="Edit">
+				<input type=submit value="Edit">
 			</form>
 
 			<form method=get action="/answers/<%= answer.id %>/edit">
-			<input type= submit value="Delete">
+				<input type= submit value="Delete">
 			</form>
 		<% end %>
+
+	<% if current_user != answer.user %>
+		<form method=post action="/answers/<%= answer.id %>/answer_votes/upvote">
+			<input type= submit value="Upvote">
+		</form>
+		<form method=post action="/answers/<%= answer.id %>/answer_votes/downvote">
+			<input type= submit value="Downvote">
+		</form>
+	<% end %>
 	</div>
 <% end %>
 
 <div style="padding-top: 50px">
 	<form method=get action='/questions'>
-	<input type=submit value = "Back to All Q&A">
+		<input type=submit value = "Back to All Q&A">
 	</form>
 </div>
