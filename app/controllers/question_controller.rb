@@ -13,8 +13,11 @@ end
 # CREATE a new question
 post '/questions' do 
 	@question = Question.new(user_id: session[:user_id], question: params[:question], caption: params[:caption])
-	@question.save
-	redirect "/questions"
+	if @question.save
+		redirect "/questions"
+	else
+
+	end
 end
 
 # GET the Form to EDIT a specific question

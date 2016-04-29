@@ -1,14 +1,17 @@
+<header> <p>Hello <%= current_user.username %>!</p></header>
+
 <h2>Question Index Page</h2>
 <p>This page displays all questions from all users</p>
 
 
 <% @questions.each do |question| %>
-		<div style="padding-top: 50px">
-			<a href="/questions/<%= question.id %>"><%= question.question %></a><br><span><%=	question.caption%></span><br>		
-			<p><b>by: </b><a href="/profile/<%= question.user.username%>"><%= question.user.username%></a></p>
+	<div style="padding-top: 50px">
+	<a href="/questions/<%= question.id %>"><%= question.question %></a><br><br>
 
+		<p><b>by: </b><%= question.user.username%></a></p>
+		<p><b>Updated At:</b> <%= question.updated_at %></p>
 
-			<form method=post action="/answers">
+			<form method=post action="/answers/<%= question.id %>/answers/new">
 				<input type=text placeholder = "Submit An Answer" style="text-align: center; width: 250px; height: 50px;" name = "answer"><br><br>
 				<input type= submit value="Submit">
 			</form>

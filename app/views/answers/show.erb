@@ -4,4 +4,4 @@
 <p><b>Question:</b> <%= @question.question %></p>
 <p><b>Answer:</b> <%= @answer.answer %></p>
 <p><b>Updated At:</b> <%= @answer.updated_at %></p>
-<p><b>by: </b><a href="/profile"<p><%= "#{session[:username]}"%></a></p>
+<p><b>by: </b><a href="/profile"<p><%= current_user.username %></a></p>

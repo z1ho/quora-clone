@@ -6,6 +6,11 @@ helpers do
 	end
 
 # #Returns true if current_user exists, false otherwise
+	
+	def login(user)
+		session[:user_id] = user.id		
+	end
+
 	def logged_in?
 		!current_user.nil?
 	end

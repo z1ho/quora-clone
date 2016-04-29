@@ -1,37 +1,39 @@
-get '/user_signup' do
-	erb :"static/user_signup"
+get '/signup' do
+	erb :"static/signup"
 end
 
-post '/user_signup' do
+post '/signup' do
 	@user = User.create(username: params[:username], password: params[:password], email: params[:email], first_name: params[:first_name], last_name: params[:last_name])
-			@user.save
-				erb :"static/homepage"
+		@user.save
+		login(@user)
+		erb :"static/homepage"
 end
 
-get '/user_login' do
-	erb :"static/user_login"
+get '/login' do
+	erb :"static/login"
 end
 
-post '/user_login' do
+post '/login' do
 	@user = User.find_by_username(params[:username])
 
 	if @user.login(params[:password]) == true
-		session[:user] = true											#verifies the session
-		session[:user_id] = @user.id 							#assigns the user id
-		# session[:username] = @user.username 		#assigns username
+		# session[:user] = true										#verifies the session
+		# session[:user_id] = @user.id 								#assigns the user id
+		# session[:username] = @user.username 						#assigns username
+		login(@user)
 		erb :'static/homepage'
 	else 
 		"Error, please sign up"
-		erb :'static/user_signup'
+		erb :'static/signup'
  	end
 end
 
 # Checks if session[:user] is true
-helpers do
-  def user?
-    session[:user]
-  end
-end
+# helpers do
+#   def user?
+#     session[:user]
+#   end
+# end
 
 get '/profile' do
 	erb :'static/profile'

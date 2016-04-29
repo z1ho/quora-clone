@@ -12,14 +12,14 @@
 
 				<% if current_user %>
 					<div id="logout">
-						<form action ="/user_logout" method="post">
+						<form action ="/logout" method="post">
 							<input type = "submit" value = "Logout">
 						</form>
 					</div>
 				<% else %>
 					<div id="login" style="padding-top: 40px">
 						<p>Already an existing user?</p>
-						<form action ="/user_login" method="get">
+						<form action ="/login" method="get">
 						<input type = "submit" value = "Login">
 						</form>
 					</div>

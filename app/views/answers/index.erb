@@ -1,9 +1,14 @@
+<header> <p>Hello <%= current_user.username %>!</p></header>
+
 <h2>Answer Index Page</h2>
 <p>This page displays all answers</p>
 
 <% @answers.each do |answer| %>
 	<div style="padding-top: 50px">
 	<a href="/answers/<%= answer.id %>"><%= answer.answer %></a><br><br>
+
+		<p><b>by: </b><%= answer.user.username%></a></p>
+		<p><b>Updated At:</b> <%= answer.updated_at %></p>
 
 		<form method=get action="/answers/<%= answer.id %>/edit">
 		<input type=submit value="Edit">

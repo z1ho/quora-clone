@@ -12,8 +12,8 @@ get '/answers/:id' do
 end
 
 # CREATE a new answer
-post '/answers' do 
-	@answer = Answer.new(user_id: session[:user_id], answer: params[:answer])
+post '/answers/:question_id/answers/new' do 
+	@answer = Answer.new(user_id: current_user.id, answer: params[:answer], question_id: params[:question_id])
 	@answer.save
 	redirect "/answers"
 end

@@ -14,11 +14,11 @@ end
 # 		erb :'static/homepage'
 # end
 
-get '/user_logout' do
-	erb :'static/user_logout'
+get '/logout' do
+	erb :'static/logout'
 end
 
-post '/user_logout' do
+post '/logout' do
 	session[:user_id] = nil
-	redirect "/user_logout"
+	redirect "/logout"
 end

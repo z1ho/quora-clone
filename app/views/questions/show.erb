@@ -1,10 +1,11 @@
 <h2>Question Display Page</h2>
 <p>This page DISPLAYS a Particular Question</p>
+		
 
 <p><b>Question:</b> <%= @question.question %></p>
 <p><b>Caption:</b> <%= @question.caption %></p>
 <p><b>Updated At:</b> <%= @question.updated_at %></p>
-<p><b>by: </b><a href="/profile"<p><%= "#{session[:username]}"%></a></p>
+<p><b>by: </b><%= @question.user.username%></a></p>
 
 <div style="padding-top: 50px">
 	<form method=get action='/questions'> 
