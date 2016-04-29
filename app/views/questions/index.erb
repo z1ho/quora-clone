@@ -3,7 +3,7 @@
 <h2>Question Index Page</h2>
 <p>This page displays all questions from all users</p>
 
-
+<% @questions = Question.order(created_at: :desc) %>
 <% @questions.each do |question| %>
 <div style="padding-top: 50px">
 <a href="/questions/<%= question.id %>"><%= question.question %></a><br><br>
@@ -29,6 +29,8 @@
 	<% end %>
 	</div>
 <% end %>
+
+
 
 <div style="padding-top: 50px">
 	<form method=get action='/feed'>
