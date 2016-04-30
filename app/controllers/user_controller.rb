@@ -22,25 +22,18 @@ post '/login' do
 		# session[:username] = @user.username 						#assigns username
 		login(@user)
 		erb :'static/homepage'
-	else 
+	else
 		"Error, please sign up"
 		erb :'static/signup'
  	end
 end
 
-# Checks if session[:user] is true
-# helpers do
-#   def user?
-#     session[:user]
-#   end
-# end
-
 get '/profile' do
-	erb :'static/profile'
+	erb :'users/profile'
 end
 
 post '/profile' do
-	erb :'static/profile'
+	erb :'users/profile'
 end
 
 get '/feed' do
@@ -62,5 +55,3 @@ end
 get '/user_questions' do
 	erb :'static/user_questions'
 end
-
-

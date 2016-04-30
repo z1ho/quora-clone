@@ -1,8 +1,14 @@
 /*.btn is a class*/
 /*padding 20px / 24px 20 refers to top & bottom / 24 refers to L & R*/
 
-.footer {
-  margin: 100px;
-  font-family: Futura;
-  color: red;
-}
+/*
+html {
+	color: black;
+	background-image: url(/img/3.png); /*You will specify your image path here.*/
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	background-size: cover;						   /* Makes the image fit-to-screen*/
+	background-position: top center !important;
+	background-repeat: no-repeat !important;
+	background-attachment: fixed;
+}*/

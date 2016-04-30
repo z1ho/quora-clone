@@ -4,4 +4,5 @@ class Answer < ActiveRecord::Base
 	has_many :answer_votes
 
 	validates :user_id, presence: true
+	validates :answer, presence: true
 end

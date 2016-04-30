@@ -1,45 +1,42 @@
-<header> <p>Hello <%= current_user.username %>!</p></header>
+<header> <p>Hello <a href="/profile"<p><%= "#{current_user.username}" %>!</a></header>
 
 <h2>Question Index Page</h2>
 <p>This page displays all questions from all users</p>
 
 <% @questions = Question.order(created_at: :desc) %>
-<% @questions.each do |question| %>
-<div style="padding-top: 50px">
-<a href="/questions/<%= question.id %>"><%= question.question %></a><br><br>
+	<% @questions.each do |question| %>
+		<div style="padding-top: 50px">
+		<a href="/questions/<%= question.id %>"><%= question.question %></a><br><br>
 
-<p><b>by: </b><%= question.user.username%></a></p>
-<p><b>Updated At:</b> <%= question.updated_at %></p>
+		<p><b>by: </b><%= question.user.username%></a></p>
+		<p><b>Updated At:</b> <%= question.updated_at %></p>
 
-	<% if current_user != question.user %>
-		<form method=post action="/answers/<%= question.id %>/answers/new">
-			<input type=text placeholder = "Submit An Answer" style="text-align: center; width: 250px; height: 50px;" name = "answer"><br>
-			<input type= submit value="Submit">
-		</form>
-		<br>
-		<form method=post action="/questions/<%= question.id %>/question_votes/upvote">
-			<input type= submit value="Upvote">
-		</form>
-		<form method=post action="/questions/<%= question.id %>/question_votes/downvote">
-			<input type= submit value="Downvote">
-		</form>
+		<% if current_user != question.user %>
+			<form method=post action="/answers/<%= question.id %>/answers/new">
+				<input type=text placeholder = "Submit An Answer" style="text-align: center; width: 250px; height: 50px;" name = "answer"><br>
+				<input type= submit value="Submit">
+			</form>
+			<br>
+			<form method=post action="/questions/<%= question.id %>/question_votes/upvote">
+				<input type= submit value="Upvote [<%=question.question_votes.sum(:upvote)%>]">
+			</form>
 
-	<% end %>
+			<form method=post action="/questions/<%= question.id %>/question_votes/downvote">
+				<input type= submit value="Downvote [<%=question.question_votes.sum(:downvote)%>]">
+			</form>
+		<% end %>
 
-	<% if current_user == question.user %>
-		<form method=get action="/questions/<%= question.id %>/edit">
-			<input type=submit value="Edit">
-		</form>
+			<% if current_user == question.user %>
+			<form method=get action="/questions/<%= question.id %>/edit">
+				<input type=submit value="Edit">
+			</form>
 
-		<form method=get action="/questions/<%= question.id %>/edit">
-			<input type= submit value="Delete">
-		</form>
-
-	<% end %>
-	</div>
+			<form method=get action="/questions/<%= question.id %>/edit">
+				<input type= submit value="Delete">
+			</form>
+			<% end %>
+		</div>
 <% end %>
-
-
 
 <div style="padding-top: 50px">
 	<form method=get action='/feed'>

@@ -1,11 +1,12 @@
-<header> <p>Hello <%= current_user.username %>!</p></header>
+<header> <p>Hello <a href="/profile"<p><%= "#{current_user.username}" %>!</a></header>
 
 <h2>Answer Index Page</h2>
 <p>This page displays all answers</p>
 
-<% @answers.each do |answer| %>
+<% @answers = Answer.order(created_at: :desc)%>
+	<% @answers.each do |answer| %>
 	<div style="padding-top: 50px">
-	<a href="/answers/<%= answer.id %>"><%= answer.answer %></a><br><br>
+		<a href="/answers/<%= answer.id %>"><%= answer.answer %></a><br><br>
 
 		<p><b>by: </b><%= answer.user.username%></a></p>
 		<p><b>Updated At:</b> <%= answer.updated_at %></p>
@@ -22,10 +23,10 @@
 
 	<% if current_user != answer.user %>
 		<form method=post action="/answers/<%= answer.id %>/answer_votes/upvote">
-			<input type= submit value="Upvote">
+			<input type=submit value="Upvote [<%=answer.answer_votes.sum(:upvote)%>]">
 		</form>
 		<form method=post action="/answers/<%= answer.id %>/answer_votes/downvote">
-			<input type= submit value="Downvote">
+			<input type=submit value="Downvote [<%=answer.answer_votes.sum(:downvote)%>]">
 		</form>
 	<% end %>
 	</div>

@@ -1,0 +1,23 @@
+<center>
+	<head>
+	</head>
+	<body>
+		<header class= "header">
+			<h3>Profile</h3>
+			<p>Welcome back <%= current_user.username %>!</p>
+		</header>
+
+		<div class= "main">
+			<ul>
+				<li style="list-style: none; padding-left: 0px;"> Edit</li>
+				<li style="list-style: none; padding-left: 0px;"> Delete</li>
+			</ul>
+		</div>
+
+		<div>
+			<form method="post" action="/questions">
+				<input type=submit value="Back to Q&A Feed">
+			</form>
+		</div>
+	</body>
+</center>

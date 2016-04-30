@@ -1,9 +1,10 @@
 <p>user_questions.erb</p>
-<p>All of <a href="/profile"<p><%= "#{session[:username]}"%>'s</a> Questions</p>
+<p>All of <a href="/profile"<p><%= "#{current_user.username}" %>'s</a> Questions</p>
 
-<%= qu = Question.find_by_user_id(session[:user_id]) %>
-<%= qu.question %>
-<%= @current_user = User.find_by_user_id(session[:user_id]) %>
+<%= q = Question.find_by_user_id(current_user) %>
+<%= q.question %>
+
+<%= @current_user = User.find_by_user_id(current_user) %>
 <%= @current_user.question %>
 
 <h1>TEST</h1>
