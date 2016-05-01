@@ -26,15 +26,15 @@
 			</form>
 		<% end %>
 
-			<% if current_user == question.user %>
-			<form method=get action="/questions/<%= question.id %>/edit">
-				<input type=submit value="Edit">
-			</form>
+		<% if current_user == question.user %>
+		<form method=get action="/questions/<%= question.id %>/edit">
+			<input type=submit value="Edit">
+		</form>
 
-			<form method=get action="/questions/<%= question.id %>/edit">
-				<input type= submit value="Delete">
-			</form>
-			<% end %>
+		<form method=get action="/questions/<%= question.id %>/edit">
+			<input type= submit value="Delete">
+		</form>
+		<% end %>
 		</div>
 <% end %>
 

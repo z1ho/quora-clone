@@ -10,7 +10,6 @@ get '/questions/:id' do
 	erb :'/questions/show'
 end
 
-
 #@sorted_question = Question.order
 
 # CREATE a new question
@@ -19,7 +18,6 @@ post '/questions' do
 	if @question.save
 		redirect "/questions"
 	else
-
 	end
 end
 

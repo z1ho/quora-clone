@@ -3,15 +3,27 @@
 	</head>
 	<body>
 		<header class= "header">
-			<h3>Profile</h3>
-			<p>Welcome back <%= current_user.username %>!</p>
+			<h2>Profile Page</h2>
+			<p>Welcome back <%= "#{current_user.username}" %>!</p>
 		</header>
 
 		<div class= "main">
-			<ul>
-				<li style="list-style: none; padding-left: 0px;"> Edit</li>
-				<li style="list-style: none; padding-left: 0px;"> Delete</li>
-			</ul>
+
+			<h4><u>Your Details</u></h4>
+				<p><b> Username: </b><%= current_user.username %><p>
+				<p><b> First Name: </b><%= current_user.first_name %><p>
+				<p><b> Last Name: </b><%= current_user.last_name %><p>
+				<p><b> Email: </b><%= current_user.email %><p>
+				<p><b> Date Created: </b><%= current_user.created_at %><p>
+
+				<form method="get" action="/users/<%= current_user.id%>/edit">
+					<input type=submit value="Edit Details">
+				</form>
+
+				<form method=get action="/users/<%= current_user.id %>/edit">
+					<input type= submit value="Delete">
+				</form>
+
 		</div>
 
 		<div>

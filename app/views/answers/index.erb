@@ -9,17 +9,17 @@
 		<a href="/answers/<%= answer.id %>"><%= answer.answer %></a><br><br>
 
 		<p><b>by: </b><%= answer.user.username%></a></p>
-		<p><b>Updated At:</b> <%= answer.updated_at %></p>
+		<p><b>Updated At:</b><%= answer.updated_at %></p>
 
-		<% if current_user == answer.user%>
-			<form method=get action="/answers/<%= answer.id %>/edit">
-				<input type=submit value="Edit">
-			</form>
+	<% if current_user == answer.user%>
+		<form method=get action="/answers/<%= answer.id %>/edit">
+			<input type=submit value="Edit">
+		</form>
 
-			<form method=get action="/answers/<%= answer.id %>/edit">
-				<input type= submit value="Delete">
-			</form>
-		<% end %>
+		<form method=get action="/answers/<%= answer.id %>/edit">
+			<input type= submit value="Delete">
+		</form>
+	<% end %>
 
 	<% if current_user != answer.user %>
 		<form method=post action="/answers/<%= answer.id %>/answer_votes/upvote">

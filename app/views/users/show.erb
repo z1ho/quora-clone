@@ -1,0 +1,15 @@
+<header>
+  <h2><u>Edited Details:-</u></h2>
+</header>
+<body>
+  <p><b>Username:</b> <%= @user.username %><br></p>
+  <p><b>First Name:</b> <%= @user.first_name %><br></p>
+  <p><b>Last Name:</b> <%= @user.last_name %><br></p>
+  <p><b>Email:</b> <%= @user.email %><br></p>
+
+  <form method=get action='/questions'>
+    <input type=submit value = "Back to All Q&A">
+  </form>
+</body>
+<footer>
+</footer>
