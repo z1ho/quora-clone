@@ -10,8 +10,6 @@ get '/questions/:id' do
 	erb :'/questions/show'
 end
 
-#@sorted_question = Question.order
-
 # CREATE a new question
 post '/questions' do
 	@question = Question.new(user_id: session[:user_id], question: params[:question], caption: params[:caption])

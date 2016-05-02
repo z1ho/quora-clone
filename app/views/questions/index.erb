@@ -2,8 +2,15 @@
 
 <h2>Question Index Page</h2>
 <p>This page displays all questions from all users</p>
+<br>
+<form method=post action="/questions">
+	<input type=text placeholder = "Submit Your Question" name = "question"><br>
+	<input type=text placeholder = "Enter A Caption" name = "caption"><br>
+	<input type=submit value="Ask">
+</form>
 
-<% @questions = Question.order(created_at: :desc) %>
+
+<% @questions = Question.order(updated_at: :desc) %>
 	<% @questions.each do |question| %>
 		<div style="padding-top: 50px">
 		<a href="/questions/<%= question.id %>"><%= question.question %></a><br><br>

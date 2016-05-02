@@ -5,9 +5,9 @@ end
 
 post '/signup' do
 	@user = User.create(username: params[:username], password: params[:password], email: params[:email], first_name: params[:first_name], last_name: params[:last_name])
-		@user.save
-		login(@user)
-		erb :"static/homepage"
+	@user.save
+	login(@user)
+	erb :"static/homepage"
 end
 
 # User LOG-IN
@@ -50,17 +50,18 @@ post '/profile' do
 end
 
 # EDIT User's Profile
+
 # get '/users/:id/edit' do
 # 		@user = User.find(params[:id])
 # 		erb :'/users/show'
 # end
 
-get '/users/:id/edit' do   						#works but need to refresh the page..?
+get '/users/:id/edit' do   				#works but need to refresh the page..?
 	@user =  User.find(params[:id])
 	erb :'/users/edit'
 end
 
-patch '/users/:id' do #took out /edit
+patch '/users/:id' do 			#took out /edit
 	@user = User.find(params[:id])
 	@user.update(username: params[:username], first_name: params[:first_name], last_name: params[:last_name], email: params[:email])
 	@user.save
@@ -72,14 +73,6 @@ end
 delete '/users/:id' do
 	@user = User.find(params[:id])
 	@user.destroy
+	byebug
 	redirect "/signup"
 end
-
-
-# get '/user_answers' do
-# 	erb :'static/user_answers'
-# end
-
-# get '/user_questions' do
-# 	erb :'static/user_questions'
-# end

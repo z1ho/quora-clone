@@ -15,3 +15,8 @@ helpers do
 		!current_user.nil?
 	end
 end
+
+
+#Think of sessions as a storage space. Cookies is a type 
+#of session
+ 

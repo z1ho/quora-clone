@@ -20,8 +20,9 @@
 					<input type=submit value="Edit Details">
 				</form>
 
-				<form method=get action="/users/<%= current_user.id %>/edit">
-					<input type= submit value="Delete">
+				<form method="post" action="/users/<%= current_user.id %>">
+					<input type="hidden" name="_method" value="DELETE">
+					<input type=submit value="Delete Your Profile">
 				</form>
 
 		</div>
